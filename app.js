@@ -4,7 +4,6 @@ const mongoose = require("mongoose");
 const quoteRoutes = require("./routes/quote");
 const app = express();
 const cors = require("cors");
-
 const url = process.env.DB_URL;
 
 app.use(cors());
