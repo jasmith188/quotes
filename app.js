@@ -2,10 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const quoteRoutes = require("./routes/quote");
-
 const app = express();
+const cors = require("cors");
 
 const url = process.env.DB_URL;
+
+app.use(cors());
 
 mongoose
   .connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -20,6 +22,4 @@ app.use(express.json());
 
 app.use("/quote", quoteRoutes);
 
-app.listen(3000, () => {
-  console.log("listening on port 3000");
-});
+app.listen(process.env.PORT || 8000);
