@@ -20,8 +20,8 @@ router.post("/", (req, res) => {
     .catch((err) => res.status(400).json({ message: err }));
 });
 router.delete("/:quoteID", (req, res) => {
-  Quote.deleteOne({ _id: req.params.quoteID })
-    .then(() => res.status(200).json({ message: "Quote deleted" }))
+  Quote.deleteOne(req.params.quoteId)
+    .then((data) => res.status(200).json({ message: "Quote deleted" }))
     .catch((err) => res.status(400).json({ message: err }));
 });
 
@@ -38,5 +38,4 @@ router.patch("/:quoteID", (req, res) => {
     .then((data) => res.status(200).json({ message: "Quote updated" }))
     .catch((err) => res.status(400).json({ message: err }));
 });
-
 module.exports = router;
