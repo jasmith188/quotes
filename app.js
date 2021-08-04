@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const quoteRoutes = require("./routes/quote");
 const app = express();
 const cors = require("cors");
+
 const url = process.env.DB_URL;
 
 app.use(cors());
@@ -19,6 +20,6 @@ app.get("/", (req, res) => {
 
 app.use(express.json());
 
-app.use("/quote", quoteRoutes);
+app.use("/quote", quoteRoutes); //middleware
 
 app.listen(process.env.PORT || 8000);
